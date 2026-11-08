@@ -4,3 +4,6 @@ from .models import Product
 def product_list(request):
     products = Product.objects.all()
     return render(request, 'product_list.html', {'products': products})
+
+def info(request):
+    return render(request, 'info.html')
