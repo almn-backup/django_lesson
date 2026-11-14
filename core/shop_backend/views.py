@@ -6,4 +6,8 @@ def product_list(request):
     return render(request, 'product_list.html', {'products': products})
 
 def info(request):
-    return render(request, 'info.html')
+    productCount = Product.objects.count()
+    return render(request, 'info.html', {'productCount': productCount})
+
+def index(request):
+    return render(request, 'index.html')
