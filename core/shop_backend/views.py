@@ -11,3 +11,7 @@ def info(request):
 
 def index(request):
     return render(request, 'index.html')
+
+def product_details(request, product_id):
+    product = Product.objects.filter(id=product_id).first()
+    return render(request, 'product_details.html', {'product': product})

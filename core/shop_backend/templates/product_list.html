@@ -2,10 +2,23 @@
 {% block title %}Product List{% endblock %}
 
 {% block content %}
+{% if products %}
+
 <h1>Product List</h1>
-<ul>
-    {% for product in products %}
-    <li>{{ product.name }}: {{ product.description }}</li>
-    {% endfor %}
-</ul>
+
+<div class="product-grid">
+{% for product in products %}
+    <div class="product-item">
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <p class="product-price">Цена: {{ product.price }} тг</p>
+        <a class="product-details-btn" href="{% url 'product_details' product.id %}">Подробнее</a>
+    </div>
+{% endfor %}
+</div>
+
+{% else %}
+    <p>No products available.</p>
+{% endif %}
+
 {% endblock %}
